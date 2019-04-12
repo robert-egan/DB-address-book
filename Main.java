@@ -38,6 +38,7 @@ public class Main extends Application {
 	
 	
 	private void setDimensions() {
+		//Setting the dimensions
 		contactList.setPrefSize(250, 400);
 		controls.setPrefSize(350, 400);
 		buttons.setPrefSize(350, 200);
@@ -55,6 +56,7 @@ public class Main extends Application {
 	}
 	
 	private void attachCode() {
+		//Attaching the codes to the buttons
 		add.setOnAction(e-> btncode(e));
 		delete.setOnAction(e-> btncode(e));
 		update.setOnAction(e-> btncode(e));
@@ -65,7 +67,7 @@ public class Main extends Application {
 	}
 	
 	private void btncode(ActionEvent e) {
-		
+		//code to execute when a button is pressed
 		try {
 			if (e.getSource() == add) {
 				Contact temp = new Contact();
@@ -135,6 +137,7 @@ public class Main extends Application {
 		}
 	}
 	private void displayContacts() {
+		//Populates the list of contacts on the left side of the GUI 
 		String display = "Your Contacts";
 		contactList.setText(display);
 		for (int i=0;i<contacts.list.size();i++) {

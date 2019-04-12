@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Book{
-	
+	//Based on a database called contactsdb and a table called contacts
 	//Change these variables to reflect your own database
 	String databasePath = "your path";
 	String databasePasswd = "your password";
@@ -50,9 +50,9 @@ public class Book{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			//Step 2. Set up the connection with the DB
-			connect = DriverManager.getConnection("jdbc:mysql://localhost/contactsdb?"
+			connect = DriverManager.getConnection(databasePath
 					+ "useLegacyDatetimeCode=false&serverTimezone=UTC"
-					+ " &user=root&password=@ppleFritter27");
+					+ " &user=root&password=" + databasePasswd);
 			readAllContacts();
 			
 			
@@ -71,9 +71,9 @@ public class Book{
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect = DriverManager.getConnection("jdbc:mysql://localhost/contactsdb?"
+			connect = DriverManager.getConnection(databasePath
 					+ "useLegacyDatetimeCode=false&serverTimezone=UTC"
-					+ " &user=root&password=@ppleFritter27");
+					+ " &user=root&password=" + databasePasswd);
 			preparedStatement = connect.prepareStatement("delete from contactsdb.contacts where name=?");
 			preparedStatement.setString(1, contact.getName());
 			preparedStatement.executeUpdate();
@@ -89,9 +89,9 @@ public class Book{
 			//Use PreparedStatement when inserting with variables.
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect = DriverManager.getConnection("jdbc:mysql://localhost/contactsdb?"
+			connect = DriverManager.getConnection(databasePath
 					+ "useLegacyDatetimeCode=false&serverTimezone=UTC"
-					+ " &user=root&password=@ppleFritter27");
+					+ " &user=root&password=" + databasePasswd);
 			
 			preparedStatement = connect.prepareStatement("insert into contactsdb.contacts values "
 					+ "(default, ?, ?, ?)");

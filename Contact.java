@@ -6,6 +6,7 @@ public class Contact implements Comparable<Contact>{
 	private String address;
 	private String phone;
 	
+	//Getters and Setters
 	public String getName() {
 		return name;
 	}
@@ -24,6 +25,7 @@ public class Contact implements Comparable<Contact>{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	//compareTo function to implement Comparable
 	@Override public int compareTo(Contact other) {
 		return this.getName().compareToIgnoreCase(other.getName());
 	}
